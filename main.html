@@ -10,38 +10,74 @@
             text-align: center;
             margin-top: 50px;
         }
+        .choices {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
         .choice {
-            display: inline-block;
-            margin: 20px;
             cursor: pointer;
+            transition: transform 0.3s;
         }
         .choice img {
             width: 100px;
             height: 100px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+        }
+        .choice.active img {
+            border-color: gold;
+            transform: scale(1.2);
+        }
+        .scoreboard {
+            margin-top: 20px;
+            font-size: 18px;
         }
         #result {
             margin-top: 30px;
             font-size: 20px;
         }
+        .reset-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .reset-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <div>
-        <div class="choice" onclick="playGame('rock')">
+    <div class="choices">
+        <div class="choice" onclick="playGame('rock')" id="rock">
             <img src="rock.png" alt="Rock">
             <p>Rock</p>
         </div>
-        <div class="choice" onclick="playGame('paper')">
+        <div class="choice" onclick="playGame('paper')" id="paper">
             <img src="paper.png" alt="Paper">
             <p>Paper</p>
         </div>
-        <div class="choice" onclick="playGame('scissors')">
+        <div class="choice" onclick="playGame('scissors')" id="scissors">
             <img src="scissors.png" alt="Scissors">
             <p>Scissors</p>
         </div>
     </div>
+    <div class="scoreboard">
+        <p>Player Score: <span id="playerScore">0</span></p>
+        <p>Computer Score: <span id="computerScore">0</span></p>
+    </div>
     <div id="result"></div>
+    <button class="reset-btn" onclick="resetGame()">Reset Game</button>
+
+    <audio id="winSound" src="win.mp3"></audio>
+    <audio id="loseSound" src="lose.mp3"></audio>
+    <audio id="tieSound" src="tie.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
