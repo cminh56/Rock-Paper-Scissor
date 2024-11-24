@@ -10,22 +10,37 @@
             text-align: center;
             margin-top: 50px;
         }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
+        .choice {
+            display: inline-block;
+            margin: 20px;
+            cursor: pointer;
+        }
+        .choice img {
+            width: 100px;
+            height: 100px;
         }
         #result {
-            margin-top: 20px;
+            margin-top: 30px;
             font-size: 20px;
         }
     </style>
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <button onclick="playGame('rock')">Rock</button>
-    <button onclick="playGame('paper')">Paper</button>
-    <button onclick="playGame('scissors')">Scissors</button>
+    <div>
+        <div class="choice" onclick="playGame('rock')">
+            <img src="rock.png" alt="Rock">
+            <p>Rock</p>
+        </div>
+        <div class="choice" onclick="playGame('paper')">
+            <img src="paper.png" alt="Paper">
+            <p>Paper</p>
+        </div>
+        <div class="choice" onclick="playGame('scissors')">
+            <img src="scissors.png" alt="Scissors">
+            <p>Scissors</p>
+        </div>
+    </div>
     <div id="result"></div>
 
     <script src="script.js"></script>
